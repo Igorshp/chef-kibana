@@ -51,7 +51,7 @@ action :create do
       to "#{kb_args[:install_dir]}/#{kb_args[:git_branch]}/src"
     end
     new_resource.updated_by_last_action(ln.updated_by_last_action?)
-    node.set['kibana'][kb_args[:name]]['web_dir'] = "#{kb_args[:install_dir]}/current/src"
+    node.set['kibana']['web_dir'] = "#{kb_args[:install_dir]}/current/src"
 
   when 'file'
     @run_context.include_recipe 'libarchive::default'
@@ -77,7 +77,7 @@ action :create do
       end
       new_resource.updated_by_last_action(ln.updated_by_last_action?)
 
-      node.set['kibana'][kb_args[:name]]['web_dir'] = "#{kb_args[:install_dir]}/current"
+      node.set['kibana']['web_dir'] = "#{kb_args[:install_dir]}/current"
     end
   end
 
